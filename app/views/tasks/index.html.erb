@@ -1,0 +1,13 @@
+<h1>Task-Manager</h1>
+<ul class="list">
+<%@tasks.each do |task|%>
+<li><%= link_to "#{task.title}", task_path(task) %>
+<%= task.completed ? ('<i class="fa-solid fa-square-check"></i>').html_safe : ('<i class="fa-solid fa-square"></i>').html_safe%>
+<%= link_to task_path(task), method: :delete do %>
+<i class="fa-solid fa-trash"></i>
+<%end%>
+</li>
+<%end%>
+</ul>
+
+<h3><i class="fa-solid fa-plus"></i>  <%= link_to "Add a new task", new_task_path %></h3>
